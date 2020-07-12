@@ -52,29 +52,29 @@
       <v-spacer></v-spacer>
       <v-row align="center" style="max-width: 200px">
         <v-text-field
-            :append-icon-cb="() => {}"
-            placeholder="Search..."
-            single-line
-            append-icon="mdi-magnify"
-            color="white"
-            hide-details
+          :append-icon-cb="() => {}"
+          placeholder="Search..."
+          single-line
+          append-icon="mdi-magnify"
+          color="white"
+          hide-details
         ></v-text-field>
       </v-row>
     </v-app-bar>
     <v-main>
       <v-container>
-        <ConversationList :conversations="conversations" />
+        <ConversationList :conversations="conversations"/>
       </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-  import {mapActions, mapState} from 'vuex'
+  import { mapActions, mapState } from 'vuex'
   import ConversationList from "../components/ConversationList";
 
   export default {
-    components: {ConversationList },
+    components: { ConversationList },
     props: {
       source: String,
     },
