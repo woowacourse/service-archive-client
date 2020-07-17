@@ -3,14 +3,14 @@
 </template>
 
 <script>
-
 export default {
-  name: "App"
+  name: "App",
 };
 </script>
 
 <style>
-  html, body {
-    height: 100%;
-  }
+html,
+body {
+  height: 100%;
+}
 </style>

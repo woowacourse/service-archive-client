@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="levels">
-        <div class="level" v-for="(level, index) in level" :key="index">
+        <div class="level" v-for="(level, index) in levels" :key="index">
           {{ level.text }}
         </div>
       </div>
