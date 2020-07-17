@@ -24,9 +24,9 @@
   display: flex;
   width: 100%;
   height: 50px;
-  background: #111;
+  background: #000;
   color: #fff;
-  box-shadow: 0 5px 10px #222;
+  box-shadow: 0 1px 5px #000;
   z-index: 99999;
 }
 
@@ -41,7 +41,6 @@
 
 .service {
   display: flex;
-
   justify-content: center;
   align-items: center;
 }
@@ -62,6 +61,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-left: 10px;
   flex: 1;
 }
 
@@ -72,7 +72,7 @@
   border-bottom: 1px solid #fff;
   outline: none;
   color: #fff;
-  background: #111;
+  background: #000;
 }
 
 .submit {
