@@ -1,17 +1,43 @@
 <template>
-  <v-list-item style="background: #333" class="rounded-xl">
-    <v-list-item-content>
-      <v-list-item-title v-text="conversation.message"></v-list-item-title>
-      <v-list-item-subtitle class="text--primary"
-                            v-text="conversation.userId"></v-list-item-subtitle>
-      <v-list-item-subtitle
-        v-text="$moment(conversation.conversationTime).format('YYYY-MM-DD HH:mm')"></v-list-item-subtitle>
-    </v-list-item-content>
-  </v-list-item>
+  <div class="conversation">
+    <div class="content">
+      <div class="message">{{ conversation.message }}</div>
+      <div class="user">{{ conversation.userId }}</div>
+      <div class="datetime">
+        {{ $moment(conversation.conversationTime).format("MMMM, DD, YYYY") }}
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-  export default {
-    props: ['conversation']
-  };
+export default {
+  props: ["conversation"],
+};
 </script>
+
+<style scoped>
+.conversation {
+  display: flex;
+  background: #333;
+  width: 80vw;
+  margin: 15px;
+  padding: 15px;
+  color: #fff;
+  border-radius: 15px;
+}
+
+.message {
+  font-size: 20px;
+  padding: 3px;
+}
+
+.user {
+  padding: 3px;
+}
+
+.datetime {
+  color: #aaa;
+  padding: 3px;
+}
+</style>
