@@ -8,7 +8,12 @@
         slot="generation"
         @clickOption="handleGenerationOption"
       />
-      <OptionContainer title="레벨" :options="levels" slot="level" @clickOption="handleLevelOption" />
+      <OptionContainer
+        title="레벨"
+        :options="levels"
+        slot="level"
+        @clickOption="handleLevelOption"
+      />
       <Button @click="submit">적용</Button>
     </SideBar>
     <div class="main" @click.capture="drawer = false">
@@ -32,35 +37,35 @@ export default {
     generations: [
       {
         select: false,
-        text: "1기"
+        text: "1기",
       },
       {
         select: false,
-        text: "2기"
-      }
+        text: "2기",
+      },
     ],
     levels: [
       {
         select: false,
-        text: "1"
+        text: "1",
       },
       {
         select: false,
-        text: "2"
+        text: "2",
       },
       {
         select: false,
-        text: "3"
+        text: "3",
       },
       {
         select: false,
-        text: "4"
-      }
-    ]
+        text: "4",
+      },
+    ],
   }),
   computed: mapState(["conversations"]),
   mounted() {
-    //  this.loadConversations();
+    this.loadConversations();
   },
   methods: {
     ...mapActions(["loadConversations"]),
@@ -72,8 +77,8 @@ export default {
     },
     submit() {
       this.drawer = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -81,12 +86,15 @@ export default {
 .home {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: #111;
 }
 
 .main {
-  margin-top: 50px;
+  width: 100%;
   height: 100%;
+  word-break: break-all;
+  overflow: auto;
 }
 </style>

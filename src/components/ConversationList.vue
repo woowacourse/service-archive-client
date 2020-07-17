@@ -18,3 +18,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.conversations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+</style>
