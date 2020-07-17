@@ -1,36 +1,21 @@
 <template>
   <div class="home">
-    <header class="header">
-      <div class="menu"></div>
-      <div class="logo"></div>
-      <div class="search"></div>
-    </header>
-    <div class="options-container">
-      <div class="generations">
-        <div
-          class="generation"
-          v-for="(generation, index) in generations"
-          :key="index"
-        >
-          {{ generation.text }}
-        </div>
-      </div>
-      <div class="levels">
-        <div class="level" v-for="(level, index) in levels" :key="index">
-          {{ level.text }}
-        </div>
-      </div>
+    <Header @clickMenu="drawer = !drawer" />
+    <SideBar :drawer="drawer"></SideBar>
+    <div class="main" @click.capture="drawer = false">
+      <ConversationList :conversations="conversations" />
     </div>
-    <ConversationList :conversations="conversations" />
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
+import Header from "../components/Header";
+import SideBar from "../components/SideBar";
 import ConversationList from "../components/ConversationList";
 
 export default {
-  components: { ConversationList },
+  components: { Header, ConversationList, SideBar },
   data: () => ({
     drawer: false,
     generations: [
@@ -72,4 +57,15 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main {
+  margin-top: 50px;
+  height: 100%;
+}
+</style>
