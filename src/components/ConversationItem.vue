@@ -3,6 +3,7 @@
     <div class="conversation">
       <div class="content">
         <div class="message">{{ conversation.message }}</div>
+        <Images :files="conversation.files" />
         <div class="user">{{ conversation.userId }}</div>
         <div class="datetime">
           {{ $moment(conversation.conversationTime).format("MMMM, DD, YYYY") }}
@@ -13,7 +14,9 @@
 </template>
 
 <script>
+  import Images from "./Images";
   export default {
+    components: {Images},
     props: ["conversation"],
   };
 </script>

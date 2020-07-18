@@ -7,15 +7,17 @@
       </div>
     </div>
     <MarkDown :content="reply.message"/>
+    <Images :files="reply.files" />
   </div>
 </template>
 
 <script>
   import MarkDown from './MarkDown';
+  import Images from "./Images";
 
   export default {
     name: "Reply",
-    components: { MarkDown },
+    components: {Images, MarkDown },
     props: ["reply"]
   }
 </script>
