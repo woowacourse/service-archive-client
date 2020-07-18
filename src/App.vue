@@ -1,20 +1,27 @@
 <template>
-  <router-view />
+  <router-view/>
 </template>
 
 <script>
-export default {
-  name: "App",
-};
+  export default {
+    name: "App",
+  };
 </script>
 
 <style>
-* {
-  margin: 0;
-}
+  @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
-html,
-body {
-  height: 100%;
-}
+  * {
+    margin: 0;
+    font-family: 'Jua', sans-serif;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  a {
+    text-decoration: none;
+  }
 </style>
