@@ -7,36 +7,36 @@
 </template>
 
 <script>
-  export default {
-    props: ["drawer"]
-  };
+export default {
+  props: ["drawer"],
+};
 </script>
 
 <style>
+.side-bar {
+  position: absolute;
+  left: -35vw;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35vw;
+  height: calc(100% - 80px);
+  background: #333;
+  transition: all 0.25s;
+  z-index: 99999;
+}
+
+.side-bar-opened {
+  left: 0 !important;
+}
+
+@media screen and (max-width: 768px) {
   .side-bar {
-    position: absolute;
-    left: -35vmin;
-    margin-top: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 35vmin;
-    height: calc(100% - 80px);
-    background: #333;
-    transition: all 0.25s;
-    z-index: 99999;
+    margin-top: 0;
+    width: 70vw;
+    left: -70vw;
+    height: 100%;
   }
-
-  .side-bar-opened {
-    left: 0 !important;
-  }
-
-  @media screen and (max-width: 768px) {
-    .side-bar {
-      margin-top: 0px;
-      width: 70vmin;
-      left: -70vmin;
-      height: 100%;
-    }
-  }
+}
 </style>
