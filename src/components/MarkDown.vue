@@ -7,7 +7,12 @@
 
   export default {
     name: "MarkDown",
-    props: ["content"],
+    props: {
+      content: {
+        default: "",
+        type: String
+      }
+    },
     computed: {
       render() {
         const result = this.content.replace(/```/g, "\n```\n")

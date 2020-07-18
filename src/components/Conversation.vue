@@ -6,13 +6,17 @@
         {{ $moment(conversation.conversationTime).format("MMMM, DD, YYYY") }}
       </div>
     </div>
-    <div class="message">{{conversation.message}}</div>
+    <MarkDown :content="conversation.message" />
+    <Images :files="conversation.files" />
   </div>
 </template>
 
 <script>
+  import Images from "./Images";
+  import MarkDown from "./MarkDown";
   export default {
     name: "Conversation",
+    components: {MarkDown, Images},
     props: ["conversation"]
   }
 </script>
@@ -33,17 +37,6 @@
   .information {
     display: flex;
     justify-content: space-between;
-  }
-
-  .message {
-    margin: 10px 0;
-    font-size: 20px;
-    color: #ddd;
-    padding: 3px;
-  }
-
-  .message a {
-    color: aqua;
   }
 
   .user {

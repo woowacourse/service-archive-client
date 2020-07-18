@@ -2,7 +2,7 @@
   <RouterLink :to="`/conversations/${conversation.id}`">
     <div class="conversation">
       <div class="content">
-        <div class="message">{{ conversation.message }}</div>
+        <Markdown :content="conversation.message" />
         <Images :files="conversation.files" />
         <div class="user">{{ conversation.userId }}</div>
         <div class="datetime">
@@ -15,8 +15,9 @@
 
 <script>
   import Images from "./Images";
+  import Markdown from "./MarkDown";
   export default {
-    components: {Images},
+    components: {Images, Markdown},
     props: ["conversation"],
   };
 </script>
