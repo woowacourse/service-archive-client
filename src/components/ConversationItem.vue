@@ -2,8 +2,8 @@
   <RouterLink :to="`/conversations/${conversation.id}`">
     <div class="conversation">
       <div class="content">
-        <Markdown :content="conversation.message" />
-        <Images :files="conversation.files" />
+        <Markdown :content="conversation.message"/>
+        <Images :files="conversation.files"/>
         <div class="user">{{ conversation.userId }}</div>
         <div class="datetime">
           {{ $moment(conversation.conversationTime).format("MMMM, DD, YYYY") }}
@@ -16,8 +16,9 @@
 <script>
   import Images from "./Images";
   import Markdown from "./MarkDown";
+
   export default {
-    components: {Images, Markdown},
+    components: { Images, Markdown },
     props: ["conversation"],
   };
 </script>
@@ -32,11 +33,6 @@
     padding: 15px;
     color: #ddd;
     border-radius: 15px;
-  }
-
-  .message {
-    font-size: 20px;
-    padding: 3px;
   }
 
   .user {

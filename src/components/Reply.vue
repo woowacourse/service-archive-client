@@ -7,7 +7,7 @@
       </div>
     </div>
     <MarkDown :content="reply.message"/>
-    <Images :files="reply.files" />
+    <Images :files="reply.files"/>
   </div>
 </template>
 
@@ -17,7 +17,7 @@
 
   export default {
     name: "Reply",
-    components: {Images, MarkDown },
+    components: { Images, MarkDown },
     props: ["reply"]
   }
 </script>
@@ -38,14 +38,6 @@
   .information {
     display: flex;
     justify-content: space-between;
-  }
-
-  .message {
-    margin: 10px 0;
-    font-family: 'Menlo', sans-serif;
-    color: #ddd;
-    font-size: 20px;
-    padding: 3px;
   }
 
   .user {
