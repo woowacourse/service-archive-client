@@ -5,6 +5,13 @@
 <script>
   import marked from "marked"
 
+  marked.use({
+    renderer: {
+      code(text) {
+        return `<code><pre>${text.replace(/\n\n/g, "\n")}</pre></code>`
+      }
+    }
+  })
   export default {
     name: "MarkDown",
     props: {
@@ -15,7 +22,10 @@
     },
     computed: {
       render() {
-        const result = this.content.replace(/```/g, "\n```\n")
+        const result = this.content.replace(/\n/g, '\n\n')
+        .replace(/```/g, "\n```\n")
+        .replace(/&gt;/g, ">")
+        .replace(/&lt;/g, "<")
         return marked(result)
       }
     }
@@ -42,6 +52,12 @@
 
   .message a {
     color: aqua;
+  }
+
+  blockquote {
+    border-left: 3px solid #aaa;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0 10px;
   }
 
   @media screen and (max-width: 768px) {
