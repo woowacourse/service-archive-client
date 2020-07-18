@@ -9,11 +9,11 @@
 </script>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
-
   * {
     margin: 0;
-    font-family: 'Jua', sans-serif;
+    font-family: 'Menlo', sans-serif;
+    box-sizing: border-box;
+    line-height: 1.5;
   }
 
   html,

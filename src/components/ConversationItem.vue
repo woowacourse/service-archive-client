@@ -23,6 +23,7 @@
     display: flex;
     background: #333;
     width: 80vw;
+    max-width: 960px;
     margin: 15px;
     padding: 15px;
     color: #ddd;

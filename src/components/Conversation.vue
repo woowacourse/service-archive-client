@@ -23,6 +23,7 @@
     flex-direction: column;
     background: #333;
     width: 80vw;
+    max-width: 960px;
     margin: 15px;
     padding: 15px;
     color: #fff;
@@ -39,6 +40,10 @@
     font-size: 20px;
     color: #ddd;
     padding: 3px;
+  }
+
+  .message a {
+    color: aqua;
   }
 
   .user {

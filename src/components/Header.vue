@@ -23,12 +23,14 @@
 <style scoped>
   .header {
     display: flex;
+    align-items: center;
     width: 100%;
-    height: 50px;
+    height: 80px;
     background: #000;
     color: #fff;
     box-shadow: 0 1px 5px #000;
     z-index: 99999;
+    padding: 0 20px;
   }
 
   .menu {
@@ -79,12 +81,13 @@
 
   .submit {
     width: 40px;
-    height: 43px;
+    height: 40px;
     background: url("../assets/search-outline.svg") no-repeat;
     background-size: 80% 80%;
     background-position: 5px 5px;
     border: 0;
     border-bottom: 1px solid #fff;
     outline: none;
+    cursor: pointer;
   }
 </style>

@@ -6,13 +6,16 @@
         {{ $moment(reply.conversationTime).format("MMMM, DD, YYYY") }}
       </div>
     </div>
-    <div class="message">{{reply.message}}</div>
+    <MarkDown :content="reply.message"/>
   </div>
 </template>
 
 <script>
+  import MarkDown from './MarkDown';
+
   export default {
     name: "Reply",
+    components: { MarkDown },
     props: ["reply"]
   }
 </script>
@@ -23,6 +26,7 @@
     flex-direction: column;
     background: #333;
     width: 80vw;
+    max-width: 960px;
     margin: 15px;
     padding: 15px;
     color: #fff;
