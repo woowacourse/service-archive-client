@@ -25,6 +25,7 @@ export default {
   background: #333;
   transition: all 0.25s;
   z-index: 99999;
+  overflow-y: auto;
 }
 
 .side-bar-opened {
