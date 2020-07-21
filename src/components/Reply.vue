@@ -17,7 +17,7 @@
 
   export default {
     name: "Reply",
-    components: { Images, MarkDown },
+    components: {Images, MarkDown},
     props: ["reply"]
   }
 </script>
@@ -29,9 +29,10 @@
     background: #333;
     width: 80vw;
     max-width: 960px;
-    margin: 15px;
+    margin: 20px;
     padding: 15px;
     color: #fff;
+    word-break: break-all;
     border-radius: 15px;
   }
 
