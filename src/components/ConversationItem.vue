@@ -18,7 +18,7 @@
   import Markdown from "./MarkDown";
 
   export default {
-    components: { Images, Markdown },
+    components: {Images, Markdown},
     props: ["conversation"],
   };
 </script>
@@ -29,9 +29,10 @@
     background: #333;
     width: 80vw;
     max-width: 960px;
-    margin: 15px;
+    margin: 20px;
     padding: 15px;
     color: #ddd;
+    word-break: break-all;
     border-radius: 15px;
   }
 
