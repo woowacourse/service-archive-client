@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="detail">
     <Header @clickMenu="drawer = !drawer" />
     <SideBar :drawer="drawer">
       <OptionContainer
@@ -17,21 +17,35 @@
       <Button @click="submit">적용</Button>
     </SideBar>
     <div class="main" @click.capture="drawer = false">
-      <ConversationList :conversations="conversations" />
+      <Conversation :conversation="conversation" />
+      <div class="divider">
+        <div class="line"></div>
+        <div class="divider-title">댓글</div>
+        <div class="line"></div>
+      </div>
+      <ReplyList :replies="conversation.replies" />
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
-import ConversationList from "../components/ConversationList";
 import OptionContainer from "../components/OptionContainer";
 import Button from "../components/Button";
+import { fetchConversation } from "../api/conversations";
+import Conversation from "../components/Conversation";
+import ReplyList from "../components/ReplyList";
 
 export default {
-  components: { Header, ConversationList, SideBar, OptionContainer, Button },
+  components: {
+    ReplyList,
+    Conversation,
+    Header,
+    SideBar,
+    OptionContainer,
+    Button,
+  },
   data: () => ({
     drawer: false,
     generations: [
@@ -62,13 +76,14 @@ export default {
         text: "4",
       },
     ],
+    conversation: {},
   }),
-  computed: mapState(["conversations"]),
-  mounted() {
-    this.loadConversations();
+  created() {
+    fetchConversation(this.$route.params.id).then(
+      (res) => (this.conversation = res.data)
+    );
   },
   methods: {
-    ...mapActions(["loadConversations"]),
     handleGenerationOption(index) {
       this.generations[index].select = !this.generations[index].select;
     },
@@ -83,7 +98,7 @@ export default {
 </script>
 
 <style scoped>
-.home {
+.detail {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -92,8 +107,29 @@ export default {
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex: 1;
   word-break: break-all;
   overflow: auto;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #fff;
+  font-size: 20px;
+}
+
+.divider-title {
+  margin: 0 20px;
+}
+
+.line {
+  height: 1px;
+  background: #fff;
+  flex: 1;
 }
 </style>

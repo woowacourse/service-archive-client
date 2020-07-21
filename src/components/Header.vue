@@ -1,13 +1,17 @@
 <template>
   <header class="header">
-    <div class="menu" @click="$emit('clickMenu')">
-      <img src="../assets/menu-outline.svg" width="32" height="32" />
-    </div>
-    <div class="service">
-      <div class="logo">
-        <img src="../assets/logo.svg" width="32" height="32" />
+    <div class="nav">
+      <div class="menu" @click="$emit('clickMenu')">
+        <img src="../assets/menu-outline.svg" width="32" height="32" />
       </div>
-      <div class="name">Archive</div>
+      <div class="service">
+        <RouterLink to="/">
+          <div class="logo">
+            <img src="../assets/logo.svg" width="32" height="32" />
+          </div>
+        </RouterLink>
+        <RouterLink to="/" class="name">Archive</RouterLink>
+      </div>
     </div>
     <div class="rest">
       <input class="search" placeholder="Search..." />
@@ -21,12 +25,19 @@
 <style scoped>
 .header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  height: 50px;
+  height: 80px;
   background: #000;
   color: #fff;
   box-shadow: 0 1px 5px #000;
   z-index: 99999;
+  padding: 0 20px;
+}
+
+.nav {
+  display: flex;
 }
 
 .menu {
@@ -44,44 +55,48 @@
   align-items: center;
 }
 
-.service > .logo {
+.service .logo {
   display: flex;
   align-items: center;
   width: 40px;
   height: 40px;
 }
 
-.service > .name {
+.service .name {
+  color: #fff;
   font-size: 24px;
   font-weight: 600;
 }
 
 .rest {
   display: flex;
+  justify-self: flex-end;
   justify-content: flex-end;
   align-items: center;
   margin-left: 10px;
-  flex: 1;
+  flex: 0.6;
 }
 
 .search {
-  width: 45vw;
+  flex: 1;
   height: 40px;
   border: 0;
   border-bottom: 1px solid #fff;
   outline: none;
   color: #fff;
   background: #000;
+  border-radius: 0;
 }
 
 .submit {
   width: 40px;
-  height: 43px;
+  height: 40px;
   background: url("../assets/search-outline.svg") no-repeat;
   background-size: 80% 80%;
   background-position: 5px 5px;
   border: 0;
   border-bottom: 1px solid #fff;
   outline: none;
+  cursor: pointer;
 }
 </style>

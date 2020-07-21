@@ -8,23 +8,24 @@
 
 <script>
 export default {
-  props: ["drawer"]
+  props: ["drawer"],
 };
 </script>
 
 <style>
 .side-bar {
   position: absolute;
-  left: -35vmin;
-  margin-top: 50px;
+  left: -35vw;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 35vmin;
-  height: calc(100% - 50px);
+  width: 35vw;
+  height: calc(100% - 80px);
   background: #333;
   transition: all 0.25s;
   z-index: 99999;
+  overflow-y: auto;
 }
 
 .side-bar-opened {
@@ -33,9 +34,9 @@ export default {
 
 @media screen and (max-width: 768px) {
   .side-bar {
-    margin-top: 0px;
-    width: 70vmin;
-    left: -70vmin;
+    margin-top: 0;
+    width: 70vw;
+    left: -70vw;
     height: 100%;
   }
 }
