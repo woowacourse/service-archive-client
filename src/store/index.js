@@ -3,7 +3,6 @@ import Vuex from "vuex";
 import * as conversationAPI from "../api/conversations";
 
 Vue.use(Vuex);
-
 export default new Vuex.Store({
   state: {
     conversations: [],
@@ -48,6 +47,9 @@ export default new Vuex.Store({
     setConversations(state, payload) {
       state.conversations = payload;
     },
+    setMessage(state, payload) {
+      state.search.message = payload;
+    },
     appendConversations(state, payload) {
       state.conversations.push(...payload);
     },
@@ -72,14 +74,17 @@ export default new Vuex.Store({
       const {data} = await conversationAPI.fetchAll();
       commit("setConversations", data);
     },
-    async loadSpecificConversations({state: {conversations, search, loading}, commit}) {
+    async loadSpecificConversations({state: {conversations, search, loading}, commit}, isFirst) {
       if (loading) {
         return;
       }
       commit("setLoading", true);
+      if (isFirst) {
+        commit("setConversations", [])
+      }
       const lastConversation = conversations[conversations.length - 1];
       const {data} = await conversationAPI.fetchSpecificConversation({
-        conversationTime: lastConversation && lastConversation.conversationTime,
+        conversationTime: isFirst ? null : (lastConversation && lastConversation.conversationTime),
         ...search
       });
       commit("appendConversations", data);
