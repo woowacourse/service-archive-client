@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" ref="home">
     <ConversationList :conversations="conversations"/>
   </div>
 </template>
@@ -12,10 +12,17 @@
     components: {ConversationList},
     computed: mapState(["conversations"]),
     mounted() {
-      this.loadConversations();
+      const element = this.$refs.home
+      element.addEventListener("scroll", async () => {
+        if (element.scrollTop + element.clientHeight >= element.scrollHeight - 200) {
+          this.loadSpecificConversations();
+        }
+      });
+
+      this.loadSpecificConversations();
     },
     methods: {
-      ...mapActions(["loadConversations"])
+      ...mapActions(["loadSpecificConversations"])
     }
   };
 </script>

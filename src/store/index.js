@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import * as conversations from "../api/conversations";
+import * as conversationAPI from "../api/conversations";
 
 Vue.use(Vuex);
 
@@ -38,10 +38,18 @@ export default new Vuex.Store({
         },
       ],
     },
+    search: {
+      size: 5,
+      message: "",
+    },
+    loading: false,
   },
   mutations: {
     setConversations(state, payload) {
       state.conversations = payload;
+    },
+    appendConversations(state, payload) {
+      state.conversations.push(...payload);
     },
     toggleSideBar(state) {
       state.filter.drawer = !state.filter.drawer;
@@ -55,11 +63,27 @@ export default new Vuex.Store({
     optionSubmit(state) {
       state.filter.drawer = false;
     },
+    setLoading(state, payload) {
+      state.loading = payload;
+    }
   },
   actions: {
     async loadConversations({commit}) {
-      const {data} = await conversations.fetchAll();
+      const {data} = await conversationAPI.fetchAll();
       commit("setConversations", data);
+    },
+    async loadSpecificConversations({state: {conversations, search, loading}, commit}) {
+      if (loading) {
+        return;
+      }
+      commit("setLoading", true);
+      const lastConversation = conversations[conversations.length - 1];
+      const {data} = await conversationAPI.fetchSpecificConversation({
+        conversationTime: lastConversation && lastConversation.conversationTime,
+        ...search
+      });
+      commit("appendConversations", data);
+      commit("setLoading", false);
     },
   },
   modules: {},
