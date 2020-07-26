@@ -1,7 +1,10 @@
 <template>
   <div class="reply">
     <div class="information">
-      <div class="user">{{reply.userId}}</div>
+      <div class="member">
+        <img :src="reply.member.avatar" alt="member-image">
+        <div class="member-name">{{ reply.member.displayName }}</div>
+      </div>
       <div class="datetime">
         {{ $moment(reply.conversationTime).format("MMMM, DD, YYYY") }}
       </div>
@@ -39,9 +42,23 @@
   .information {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
   }
 
-  .user {
+  .member {
+    display: flex;
+    align-items: center;
+  }
+
+  .member > img {
+    height: 48px;
+    width: 48px;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+
+  .member-name {
     padding: 3px;
   }
 

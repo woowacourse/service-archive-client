@@ -4,9 +4,14 @@
       <div class="content">
         <Markdown :content="conversation.message"/>
         <Images :files="conversation.files"/>
-        <div class="user">{{ conversation.userId }}</div>
-        <div class="datetime">
-          {{ $moment(conversation.conversationTime).format("MMMM, DD, YYYY") }}
+        <div class="info">
+          <img :src="conversation.member.avatar" alt="member-image"/>
+          <div>
+            <div class="member">{{ conversation.member.displayName }}</div>
+            <div class="datetime">
+              {{ $moment(conversation.conversationTime).format("MMMM, DD, YYYY") }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -36,7 +41,19 @@
     border-radius: 15px;
   }
 
-  .user {
+  .info {
+    display: flex;
+    align-items: center;
+  }
+
+  .info > img {
+    height: 48px;
+    width: 48px;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+
+  .member {
     padding: 3px;
   }
 
