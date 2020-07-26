@@ -30,7 +30,7 @@
     display: flex;
     flex-direction: column;
     background: #333;
-    width: 80vw;
+    width: 90vw;
     max-width: 960px;
     margin: 20px;
     padding: 15px;

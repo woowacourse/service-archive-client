@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="rest">
-      <input class="search" placeholder="Search..." v-model="message" @keydown.enter="search"/>
+      <input class="search" placeholder="Search..." v-model="message" @keypress.enter="search"/>
       <button class="submit" @click="search"></button>
     </div>
   </header>
@@ -88,14 +88,15 @@
     justify-content: flex-end;
     align-items: center;
     margin-left: 10px;
-    flex: 0.6;
+    flex: 1;
   }
 
   .search {
-    flex: 1;
+    width: 100%;
     height: 40px;
     border: 0;
     border-bottom: 1px solid #fff;
+    max-width: 400px;
     outline: none;
     color: #fff;
     background: #000;
