@@ -38,7 +38,7 @@ export default new Vuex.Store({
       ],
     },
     search: {
-      size: 5,
+      size: 10,
       message: "",
     },
     loading: false,
