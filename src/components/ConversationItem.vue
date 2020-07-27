@@ -1,16 +1,14 @@
 <template>
   <RouterLink :to="`/conversations/${conversation.id}`">
     <div class="conversation">
-      <div class="content">
-        <Markdown :content="conversation.message"/>
-        <Images :files="conversation.files"/>
-        <div class="info">
-          <img :src="conversation.member.avatar" alt="member-image"/>
-          <div>
-            <div class="member">{{ conversation.member.displayName }}</div>
-            <div class="datetime">
-              {{ $moment(conversation.conversationTime).format("MMMM, DD, YYYY") }}
-            </div>
+      <Markdown :content="conversation.message"/>
+      <Images :files="conversation.files"/>
+      <div class="info">
+        <img :src="conversation.member.avatar" alt="member-image"/>
+        <div>
+          <div class="member">{{ conversation.member.displayName }}</div>
+          <div class="datetime">
+            {{ $moment(conversation.conversationTime).format("MMMM, DD, YYYY") }}
           </div>
         </div>
       </div>
@@ -31,6 +29,7 @@
 <style scoped>
   .conversation {
     display: flex;
+    flex-direction: column;
     background: #333;
     width: 80vw;
     max-width: 960px;
